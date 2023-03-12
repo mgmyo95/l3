@@ -1,0 +1,226 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    user-select:none;
+}
+body{
+    height:100vh;
+    font-family:sans-serif;
+    background-color:darkkhaki;
+
+    display:grid;
+    place-items:center;
+}
+
+.clock{
+    width:300px;
+    height:300px;
+
+    position:relative;
+}
+
+.clock-pannel{
+    width:100%;
+    height:100%;
+    background-color:#000;
+    border:10px solid silver;
+    box-shadow:inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+.clock-face{
+    color:#fff;
+}
+
+.clock-face-item{
+    position:absolute;
+    /* left:145px; */
+    left:50%;
+    top:25px;
+
+    transform:translateX(-50%);
+    transform-origin:50% 125px;
+}
+
+.clock-face-item span{
+    display:block;
+}
+
+.num-12{transform:rotate(0deg);}
+.num-1{transform:rotate(30deg);}
+.num-2{transform:rotate(60deg);}
+.num-3{transform:rotate(90deg);}
+.num-4{transform:rotate(120deg);}
+.num-5{transform:rotate(150deg);}
+.num-6{transform:rotate(180deg);}
+.num-7{transform:rotate(210deg);}
+.num-8{transform:rotate(240deg);}
+.num-9{transform:rotate(270deg);}
+.num-10{transform:rotate(300deg);}
+.num-11{transform:rotate(330deg);}
+
+.num-1 span{transform:rotate(-30deg);}
+.num-2 span{transform:rotate(-60deg);}
+.num-3 span{transform:rotate(-90deg);}
+.num-4 span{transform:rotate(-120deg);}
+.num-5 span{transform:rotate(-150deg);}
+.num-6 span{transform:rotate(-180deg);}
+.num-7 span{transform:rotate(-210deg);}
+.num-8 span{transform:rotate(-240deg);}
+.num-9 span{transform:rotate(-270deg);}
+.num-10 span{transform:rotate(-300deg);}
+.num-11 span{transform:rotate(-330deg);}
+
+.clock-face-hand-item{
+    position:absolute;
+}
+
+.clock-face-hand-item.hour{
+    --myrotation:320;
+    width:4px;
+    height:60px;
+    background-color:#fff;
+    border-radius:10px;
+
+    left:150px; /*  150-4+2=148 */
+    top:90px;
+
+    transform-origin:50% 100%;
+    /* transform:rotate(320deg); */
+    transform:rotate(calc(var(--myrotation) * 1deg));
+
+}
+
+.clock-face-hand-item.minute{
+    --myrotation:50;
+    width:4px;
+    height:120px;
+    background-color:crimson;
+    border-radius:10px;
+
+    left:150px;
+    top:30px;
+
+    transform-origin:50% 120px;
+    /* transform:rotate(50deg); */
+
+    transform:rotate(calc(var(--myrotation) * 1deg))
+}
+
+.clock-face-hand-item.second{
+    --myrotation:200;
+    width:2px;
+    height:130px;
+    background-color:cyan;
+    border-radius:10px;
+
+    left:150px;
+    top:20px;
+
+    transform-origin:50% 130px;
+    transform:rotate(200deg);
+
+    transform:rotate(calc(var(--myrotation) * 1deg));
+}
+
+/* 
+.clock{
+    width:300px;
+    height:300px;
+    position:relative;
+  }
+
+  .clock-pannel{
+    width:100%;
+    height:100%;
+    background-color:#2c2c54;
+    border-radius:50%;
+  }
+
+  .clock-face{
+    color:#fff;
+    background-color:#2c2c54;
+  }
+
+  .clock-face-item{
+    position:absolute;
+    top:20px;
+    left:48%;
+
+    transform-origin:50% 130px;
+    transform:translateX(-50%);
+  }
+
+  .clock-face-item span{
+    display:block;
+  }
+
+.num-12{transform:rotate(0deg);}
+.num-1{transform:rotate(30deg);}
+.num-2{transform:rotate(60deg);}
+.num-3{transform:rotate(90deg);}
+.num-4{transform:rotate(120deg);}
+.num-5{transform:rotate(150deg);}
+.num-6{transform:rotate(180deg);}
+.num-7{transform:rotate(210deg);}
+.num-8{transform:rotate(240deg);}
+.num-9{transform:rotate(270deg);}
+.num-10{transform:rotate(300deg);}
+.num-11{transform:rotate(330deg);}
+
+
+.num-1 span{transform:rotate(-30deg);}
+.num-2 span{transform:rotate(-60deg);}
+.num-3 span{transform:rotate(-90deg);}
+.num-4 span{transform:rotate(-120deg);}
+.num-5 span{transform:rotate(-150deg);}
+.num-6 span{transform:rotate(-180deg);}
+.num-7 span{transform:rotate(-210deg);}
+.num-8 span{transform:rotate(-240deg);}
+.num-9 span{transform:rotate(-270deg);}
+.num-10 span{transform:rotate(-300deg);}
+.num-11 span{transform:rotate(-330deg);}
+
+.clock-face-hand-item{
+position:absolute;
+}
+
+.clock-face-hand-item.hour{
+width:4px;
+height:50px;
+background-color:#ff5252;
+border-radius:5px;
+
+left:50%;
+top:100px;
+
+transform-origin:50% 100%;
+transform:rotate(120deg);
+}
+
+.clock-face-hand-item.minute{
+width:4px;
+height:70px;
+background-color:#c7ecee;
+border-radius:5px;
+
+left:50%;
+top:80px;
+
+transform-origin:50% 100%;
+transform:rotate(230deg);
+}
+
+.clock-face-hand-item.second{
+width:2px;
+height:100px;
+background-color:#f6e58d;
+border-radius:5px;
+
+left:50%;
+top:50px;
+
+transform-origin:50% 100%;
+transform:rotate(190deg);
+} */
+

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Price Range</title>
+        <style class="text/css">
+            body{
+                height:100vh;
+                font-family:sans-serif;
+                background-color:#00cec9;
+
+                display:grid;
+                justify-items:center;
+                align-content:center;
+
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            .wrapper{
+                width:400px;
+                background:#fff;
+                border-radius:10px;
+                padding:20px 25px 40px;
+            }
+
+            header h2{
+                font-size:24px;
+                font-weight:600px;
+            }
+
+            header p{
+                margin-top:5px;
+                font-size:16px;
+            }
+
+            .price-input{
+                width:100%;
+                display:flex;
+                margin:30px 0 35px;
+            }
+
+            .price-input .field{
+                width:100%;
+                height:45px;
+                
+                display:flex;
+                align-items:center;
+                /* background:red; */
+            }
+
+            .field input{
+                width:100%;
+                height:100%;
+                font-size:19px;
+                outline:None;
+                text-align:center;
+                margin-left:12px;
+                border-radius:5px;
+                border:1px solid #999;
+                -moz-appearance: none;
+                /* -moz-appearance: textfield; */
+            }
+
+            input[type="number"]::-webkit-outer-spin-button,
+            input[type="number"]::-webkit-inner-spin-button{
+                -webkit-appearance: none;
+            }
+
+            .price-input .separator{
+                width:130px;
+                /* background:red; */
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+
+            .slider{
+                height:5px;
+                border-radius:5px;
+                background:#ddd;
+                position:relative;  
+            }
+
+            .slider .progress{
+                height:5px;
+                border-radius:5px;
+                background:#00cec9;
+
+                position:absolute;
+                left:25%;
+                right:25%;
+            }
+
+            .range-input{
+                position:relative;
+            }
+
+            .range-input input{
+                width:100%;
+                height:5px; 
+
+                position:absolute;
+                top:-7px;
+
+                background:none;
+                pointer-events:none;
+                -webkit-appearance: none;
+
+            }
+
+            input[type="range"]::-webkit-slider-thumb{
+                width:17px;
+                height:17px;
+                background:#00cec9;
+                border-radius:50%;
+                -webkit-appearance:none;
+                pointer-events:auto;
+            }
+
+            input[type="range"]::-moz-range-thumb{
+                width:17px;
+                height:17px;
+                background:#00cec9;
+                border:none;
+                border-radius:50%;
+                -moz-appearance:none;
+                pointer-events:auto;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <div class="wrapper">
+
+            <header>
+                <h2>Price Range</h2>
+                <p>Use Slider or enter min and max price</p>
+            </header>
+
+            <div class="price-input">
+                <div class="field">
+                    <span>Min</span>
+                    <input type="number" class="input-min" value="2500" />
+                </div>
+
+                <div class="separator">-</div>
+
+                <div class="field">
+                    <span>Max</span>
+                    <input type="number" class="input-max" value="7500" />
+                </div>
+            </div>
+
+            <div class="slider">
+                <div class="progress"></div>
+            </div>
+
+            <div class="range-input">
+                <input type="range" class="range-min" min="0" max="10000" value="2500" step="100" />
+                <input type="range" class="range-max" min="0" max="10000" value="7500" step="100" />
+            </div>
+
+        </div>
+
+
+
+    <script type="text/javascript">
+
+        let rangeInput = document.querySelectorAll('.range-input input');
+        let priceInput = document.querySelectorAll('.price-input input');
+        let progress = document.querySelector('.slider .progress');
+
+        let priceGap = 1000;
+
+        priceInput.forEach(function(input){
+            input.addEventListener('input',(e)=>{
+                //getting two inputs value and parsing them to number
+                let minVal = parseInt(priceInput[0].value);
+                let maxVal = parseInt(priceInput[1].value);
+                // console.log(minVal,maxVal)
+
+                if((maxVal - minVal >= priceGap) && maxVal <= 10000){
+                    if(e.target.className === 'input-min'){
+                        //if active input is min input
+                        rangeInput[0].value = minVal;
+                        progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+                    }else{
+                        rangeInput[1].value = maxVal;
+                        progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                    }                                   
+                }             
+            })
+        });
+
+        rangeInput.forEach(function(input){
+            input.addEventListener('input',(e)=>{
+                //getting two ranges value and parsing them to number
+                let minVal = parseInt(rangeInput[0].value);
+                let maxVal = parseInt(rangeInput[1].value);
+                // console.log(minVal,maxVal)
+
+                if(maxVal - minVal < priceGap){
+                    if(e.target.className === 'range-min'){
+                        //if active slider is min slider
+                        rangeInput[0].value = maxVal - priceGap;
+                    }else if(e.target.className === 'range-max'){
+                        rangeInput[1].value = minVal + priceGap;
+                    }else{
+                        rangeInput[1].value = maxVal - priceGap;
+                    }     
+                                
+                }else{
+                     // let percent = (minVal / rangeInput[0].max)* 100;
+                     // console.log(percent)
+                    priceInput[0].value = minVal;
+                    priceInput[1].value = maxVal;
+                    progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+                    progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+                }             
+            })
+        });
+
+//   let rangeinput = document.querySelectorAll('.range-input input');
+//   let priceinput = document.querySelectorAll('.price-input input');
+//   let progress = document.querySelector('.progress');
+
+//   let pricegap = 1000;
+
+//   rangeinput.forEach(function(input){
+//     input.addEventListener('input',function(e){
+//       // console.log("hi")
+//       let minval = parseInt(rangeinput[0].value);
+//       let maxval = parseInt(rangeinput[1].value);
+
+//       // console.log(minval,maxval);
+
+//       // let percent = (minval / rangeinput[0].max) * 100 + "%";
+//       // console.log(percent)
+
+//       if(maxval - minval < pricegap){
+//          if(e.target.className === 'range-min'){
+//           rangeinput[0].value = maxval - pricegap;
+//          }else if(e.target.className === 'range-max'){
+//           rangeinput[1].value = minval + pricegap;
+//          }else{
+//           rangeinput[1].value = maxval + pricegap;
+//          }
+//       }else{
+//         priceinput[0].value = minval;
+//         priceinput[1].value = maxval;
+//         progress.style.left = (minval / rangeinput[0].max) * 100 + '%';
+//         progress.style.right = 100 - (maxval / rangeinput[1].max) * 100 + "%";
+//       }
+
+      
+//     });
+//   })
+
+
+    </script>
+    </body>
+</html>

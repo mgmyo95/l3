@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Light box Slider</title>
+        <link href="./style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        
+    <div class="container">
+        <div class="navbar">
+            <h3>Photo Gallery</h3>
+        </div>
+
+        <div class="row">
+            <img src="./img/image1.jpg" class="img" alt="image 1" />
+            <img src="./img/image2.jpg" class="img" alt="image 2" />
+            <img src="./img/image3.jpg" class="img" alt="image 3" />
+            <img src="./img/image4.jpg" class="img" alt="image 4" />
+            <img src="./img/image5.jpg" class="img" alt="image 5" />
+            <img src="./img/image6.jpg" class="img" alt="image 6" />
+        </div>
+
+        <!--Start Modal Area-->
+        <div class="modal">
+            <span class="btn-close">&times;</span>
+
+            <div class="modal-content">
+               <div class="view">
+                  <img src="./img/image1.jpg" alt="imgview" />
+               </div>
+
+               <div class="view">
+                <img src="./img/image2.jpg" alt="imgview" />
+               </div>
+
+               <div class="view">
+                <img src="./img/image3.jpg" alt="imgview" />
+               </div>
+
+             <div class="view">
+                <img src="./img/image4.jpg" alt="imgview" />
+             </div>
+
+             <div class="view">
+                <img src="./img/image5.jpg" alt="imgview" />
+             </div>
+
+             <div class="view">
+                <img src="./img/image6.jpg" alt="imgview" />
+             </div>
+
+               <a href="javascript:void(1);" class="prev"><</a>
+
+               <a href="javascript:void(1);" class="next">></a>
+
+               <div class="caption-container">
+                 <div class="counter">6 / 6</div>
+                 <p class="sample">Smaple</p>
+               </div>
+
+               <div class="row">
+                  <div class="col">
+                     <img src="./img/image1.jpg" class="noactive" onclick="currentview(1)" alt="image 1"  />
+                  </div>
+
+                  <div class="col">
+                    <img src="./img/image2.jpg" class="noactive" onclick="currentview(2)" alt="image 2"  />
+                 </div>
+
+                 <div class="col">
+                    <img src="./img/image3.jpg" class="noactive" onclick="currentview(3)" alt="image 3"  />
+                 </div>
+
+                 <div class="col">
+                    <img src="./img/image4.jpg" class="noactive" onclick="currentview(4)" alt="image 4"  />
+                 </div>
+
+                 <div class="col">
+                    <img src="./img/image5.jpg" class="noactive" onclick="currentview(5)" alt="image 5"  />
+                 </div>
+
+                 <div class="col">
+                    <img src="./img/image6.jpg" class="noactive" onclick="currentview(6)" alt="image 6"  />
+                 </div>
+               </div>
+
+            </div>
+        </div>
+        <!--End Modal Area-->
+
+    </div>
+
+
+    <script src="app.js" type="text/javascript"></script>
+    </body>
+</html>

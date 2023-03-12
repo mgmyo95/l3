@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cursor Ani</title>
+        <style type="text/css">
+            body{
+                font-family:sans-serif;
+                height:100vh;
+                margin:0;
+                padding:0;
+                background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3)),url('./img/bg.jpg');
+                background-size:cover;
+                background-position:center;
+                background-repeat:no-repeat;
+
+                display:grid;
+                place-items:center;
+                cursor:pointer;
+                color:#fff;
+            }
+
+            .container p{
+                width:720px;
+                line-height:28px;
+                font-size:18px;
+                text-align:justify;
+            }
+
+            .cursor{
+                width:50px;
+                height:50px;
+                border-radius:50%;
+                border:1px solid #f4f4f4;
+
+                position:fixed;
+                top:0;
+                left:0;
+
+                pointer-events: none;
+                transform:translate(-50%,-50%);
+                transition:all 0.1s;
+            }
+
+            .cursor2{
+                width:8px;
+                height:8px;
+                border-radius:50%;
+                background-color:#c6c6c6;
+
+                position:fixed;
+                top:0;
+                left:0;
+
+                pointer-events: none;
+                transform:translate(-50%,-50%);
+                transition:all 0.15s;
+            }
+
+            .container:hover ~ .cursor{
+                transform:translate(-50%,-50%) scale(1.5);
+                background-color:cyan;
+                border:none;
+                opacity:0.5;    
+            }
+
+            .container:hover ~ .cursor2{
+               opacity:0;    
+            }
+
+           
+
+        </style>
+    </head>
+    <body>
+        
+
+        <div class="container">
+            <h1>Cursor Follow on MouseMove</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis tempora est reiciendis distinctio voluptate voluptates quam rem saepe! Expedita voluptatum voluptate, suscipit nostrum nulla reiciendis vero eius necessitatibus optio beatae! Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis officiis perferendis aut, sunt temporibus similique aperiam incidunt aspernatur quam architecto dolore quis necessitatibus ducimus nobis odit ea tenetur eveniet quisquam.</p>
+        </div>
+        <div class="cursor"></div>
+        <div class="cursor2"></div>
+
+
+
+        <script typye="text/javascript">
+            var cursor = document.querySelector('.cursor');
+            var cursor2 = document.querySelector('.cursor2');
+
+            document.addEventListener('mousemove',function(e){
+                cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px;top :" + e.clientY + "px";
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family:sans-serif;
+    height:150vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+h4{
+    text-align:center;
+    color:steelblue;
+}
+
+button{
+    margin:20px 5px;
+}
+
+button:hover,select:hover{
+    background-color:steelblue !important;
+}
+
+textarea{
+    border-color:steelblue;
+    padding:10px;
+    resize:none;
+    overflow-y:auto;
+}
+
+.divarea{
+    width:100%;
+    min-height:200px;
+    max-height:400px;
+    border:1px solid steelblue;
+    padding:10px;
+    text-align:justify;
+
+    resize:vertical;
+    overflow-y:scroll;
+}
+
+.divarea:focus{
+    outline:none;
+}

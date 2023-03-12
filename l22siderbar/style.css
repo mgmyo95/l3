@@ -1,0 +1,194 @@
+*{
+    font-family:sans-serif;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background-color:#f6f6f6;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:0;
+    margin:0;
+}
+
+/* Start Navigation  */
+.navbar{
+    width:100%;
+    background:#333;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    display:flex;
+    justify-content:end;
+
+    padding:0 30px;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:#fff;
+
+    padding:15px 20px;
+}
+
+.dropdown .dropdown-toggle{
+    background-color:inherit;
+    color:#fff;
+    border:none;
+    outline:none;
+    font-size:16px;
+    padding:15px 20px;
+}
+
+.navbar a:hover,.dropdown:hover .dropdown-toggle{
+    background:slateblue;
+}
+
+.dropdown-menu,.dropdown-menu-mega{
+    min-width:130px;
+    background:#f4f4f4;
+    box-shadow:0 10px 15px rgba(0,0,0,0.2);
+    position:absolute;
+    z-index:1;
+
+    display:none;
+}
+
+.dropdown-menu a{
+    color:#000;
+    text-decoration:none;
+
+    display:block;
+    text-align:left;
+}
+
+.dropdown-menu a:hover{
+    background:#ddd;
+}
+
+.dropdown:hover .dropdown-menu,.dropdown:hover .dropdown-menu-mega{
+    display:block;
+}
+
+.dropdown-menu-mega{
+    width:100%;
+    left:0;
+}
+
+.dropdown-menu-mega .header{
+    background:linear-gradient(75deg,gray,black);
+    color:#fff;
+    padding:10px;
+}
+
+.dropdown-menu-mega .row{
+    display:flex;
+    background-color:#f4f4f4;
+    padding:30px;
+}
+
+.col-4{
+    width:33.33%;
+}
+
+.col-4 h4{
+    text-align:center;
+}
+
+.col-4 a{
+    color:#000;
+    text-decoration:none;
+    text-align:center;
+    display:block;
+    padding:20px;
+}
+
+
+
+/* End Navigation */
+
+/* Start Siderbar */
+.logo{
+    width:75px;
+    border-radius:50%;
+}
+
+.nav-btn{
+    border:none;
+    background-color:transparent;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.open-btn{
+    position:fixed;
+    left:10px;
+    top:10px;
+
+    z-index:2;
+}
+
+.fa-bars{
+    color:#fff;
+}
+
+.close-btn{
+    color:#fff;
+    position:absolute;
+    right:10px;
+    top:10px;
+}
+
+.close-btn:hover{
+    color:red;
+}
+
+.nav{
+    /* width:280px; */
+    height:100vh;
+    padding:30px;
+    position:fixed;
+    left:0;
+    top:0;
+
+    z-index:3;
+
+    transform:translateX(-100%);
+    transition:all 0.3s ease;
+}
+
+.nav.nav-bg{
+    background-color:#000;
+}
+
+.nav.visible{
+    transform:translateX(0);
+}
+
+.list-group{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.list-group li{
+    margin:25px 0;
+}
+
+.list-group .list-group-item{
+    text-decoration:none;
+    color:#fff;
+    font-size:15px;
+    text-transform:uppercase;
+}
+
+.list-group ul{
+    list-style:none;
+}
+/* End Siderbar */
